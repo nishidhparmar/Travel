@@ -332,6 +332,7 @@ section {
   .aboutdetails {
     width: 100%;
     padding: 0px 0px 0px 0px;
+    text-align: center;
   }
   header {
     padding: 15px 20px;
