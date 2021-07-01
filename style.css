@@ -1,0 +1,359 @@
+:root {
+  --hover--color: #0079a8;
+  --primary--color: #00445f;
+  --title--font-size: 25px;
+  --content--font-size: 18px;
+}
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+html {
+  scroll-behavior: smooth;
+}
+header {
+  width: 100%;
+  padding: 30px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  transition: 0.5s;
+  z-index: 1;
+}
+header.active {
+  padding: 15px 50px;
+  z-index: 1;
+  background-color: white;
+}
+header.active .logo a {
+  color: black;
+}
+header.active .menu {
+  filter: invert(1);
+}
+.up {
+  display: none;
+}
+.up.active {
+  height: 50px;
+  width: 50px;
+  background-color: var(--primary--color);
+  position: fixed;
+  bottom: 30px;
+  right: 50px;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  z-index: 0;
+}
+.up.active img {
+  height: 100%;
+  filter: invert(1);
+}
+.logo a {
+  font-size: var(--title--font-size);
+  color: white;
+  text-decoration: none;
+}
+.menu {
+  z-index: 1;
+  height: 50px;
+  width: 50px;
+  background-image: url("./assets/icons/menu.png");
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.menu.active {
+  background-image: url("./assets/icons/close.png");
+  background-size: 50%;
+}
+.navbar {
+  height: 100vh;
+  width: 300px;
+  transform: translateX(300px);
+  background-color: rgba(0, 0, 0, 0.468);
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  transition: 0.5s;
+  display: flex;
+  justify-content: center;
+}
+.navbar.active {
+  background-color: var(--primary--color);
+  transform: translateX(0px);
+}
+
+.navbar ul {
+  list-style: none;
+  padding: 150px 0px;
+  text-align: center;
+}
+.navbar li {
+  margin-bottom: 40px;
+}
+.navbar a {
+  text-decoration: none;
+  color: white;
+  font-size: var(--content--font-size);
+  position: relative;
+}
+.navbar a::before {
+  content: "";
+  position: absolute;
+  height: 4px;
+  width: 0%;
+  bottom: -10px;
+  left: 0px;
+  background-color: var(--hover--color);
+  transition: 0.2s;
+}
+.navbar a:hover::before {
+  width: 100%;
+}
+section {
+  padding: 100px 100px 50px 100px;
+}
+.home {
+  min-height: 100vh;
+  width: 100%;
+  background-image: url("./assets/imgs/home.jpg");
+  animation-name: home;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  transition: 2s ease-in-out;
+  padding: 100px 50px 20px 50px;
+}
+.home.scroll {
+  filter: grayscale(1);
+}
+.home p {
+  font-size: var(--content--font-size);
+  padding-top: 80px;
+  padding-bottom: 10px;
+}
+.home h1 {
+  font-size: 50px;
+  padding-bottom: 40px;
+}
+.btn {
+  text-decoration: none;
+  font-size: var(--content--font-size);
+  color: white;
+  background-color: var(--primary--color);
+  padding: 15px 20px;
+  transition: 0.5s;
+}
+.btn:hover {
+  background-color: var(--hover--color);
+}
+.social {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 120px;
+  padding-bottom: 50px;
+}
+.social img {
+  height: var(--title--font-size);
+  padding-left: 15px;
+  filter: invert(1);
+  z-index: 0;
+  cursor: pointer;
+}
+.title {
+  font-size: var(--title--font-size);
+  margin-bottom: 30px;
+}
+.content {
+  font-size: var(--content--font-size);
+  margin-bottom: 50px;
+  line-height: 25px;
+}
+.about {
+  display: flex;
+  align-items: center;
+}
+.aboutdetails {
+  width: 50%;
+  /* background-color: brown; */
+  padding: 0px 50px 0px 50px;
+}
+.aboutimgs {
+  width: 50%;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: blueviolet; */
+}
+.aboutimgs img:nth-child(1) {
+  height: 80%;
+}
+.aboutimgs img:nth-child(2) {
+  height: 100%;
+  margin-left: 20px;
+}
+.discover {
+  padding-bottom: 100px;
+}
+.discoverimg {
+  display: flex;
+  justify-content: space-evenly;
+  flex: 1;
+  flex-wrap: wrap;
+}
+.discoverimg .imgcard {
+  height: 300px;
+  position: relative;
+  transition: 0.5s;
+  margin: 30px 10px;
+}
+.discoverimg .imgcard:hover {
+  transform: translateY(-10px);
+}
+.discoverimg .imgcard p {
+  font-size: var(--content--font-size);
+  color: white;
+  position: absolute;
+  bottom: -40px;
+  left: 0px;
+  display: block;
+  width: 100%;
+  text-align: center;
+  background-color: var(--primary--color);
+  padding: 10px;
+}
+.discoverimg .imgcard img {
+  height: 100%;
+}
+.subscribe {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 50px;
+  background-image: linear-gradient(
+      45deg,
+      #022533d5,
+      #00445f6c
+      
+    ),
+    url("./assets/imgs/sub.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+}
+.subsearch{
+  margin-top: -20px;
+}
+.subscribe .btn{
+  margin-top: -20px;
+}
+.subscribe input{
+  height: 40px;
+  width: 300px;
+  margin-right:20px ;
+  border-radius: 5px;
+  border: none;
+  padding: 10px;
+}
+.subscribe input::placeholder{
+  text-align: center;
+}
+.subscribe input:focus{
+    outline: none;
+}
+
+
+@media (max-width: 1200px) {
+  .aboutdetails {
+    padding: 0px 50px 0px 50px;
+  }
+  .aboutimgs img:nth-child(1) {
+    height: 70%;
+  }
+  .aboutimgs img:nth-child(2) {
+    height: 90%;
+  }
+  section {
+    padding: 100px 50px 50px 50px;
+  }
+  .up.active {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  .home {
+    background-position: left;
+  }
+  .about {
+    flex-direction: column;
+  }
+  .aboutdetails {
+    width: 100%;
+    padding: 0px 50px 60px 50px;
+  }
+  .aboutimgs {
+    width: 100%;
+  }
+  .up.active {
+    display: none;
+  }
+}
+@media (max-width: 576px) {
+  section {
+    padding: 100px 20px 20px 20px;
+  }
+  .aboutimgs img:nth-child(1) {
+    height: 50%;
+  }
+  .aboutimgs img:nth-child(2) {
+    height: 60%;
+    margin-left: 10px;
+  }
+  .aboutdetails {
+    width: 100%;
+    padding: 0px 0px 0px 0px;
+  }
+  header {
+    padding: 15px 20px;
+  }
+  header.active {
+    padding: 5px 20px;
+  }
+  .home h1 {
+    font-size: 35px;
+    margin-bottom: 40px;
+  }
+  .social {
+    justify-content: flex-start;
+  }
+  .up.active {
+    display: none;
+  }
+  .discoverimg .imgcard {
+    height: 200px;
+  }
+  .subscribe input{
+    margin-bottom: 30px;
+    margin-right: 0px;
+  }
+}
